@@ -3,23 +3,37 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-
+        console.log(name, photo, email, password)
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                console.log(user);
+                form.reset()
+                handleUpdateUser(name, photo);
+
             })
             .catch(err => console.error(err))
 
+    }
+
+    const handleUpdateUser = (name, photo) => {
+        const profile = {
+            displayName: name,
+            photoURL: photo
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(err => console.error(err))
     }
 
     return (
@@ -29,7 +43,7 @@ const SignUp = () => {
                     <div>
                         <div className="mb-2 block text-start">
                             <Label
-                                htmlFor="email1"
+                                htmlFor="name"
                                 value="Your Name"
                             />
                         </div>
@@ -37,6 +51,20 @@ const SignUp = () => {
                             name='name'
                             type="text"
                             placeholder="your name"
+                            required={true}
+                        />
+                    </div>
+                    <div>
+                        <div className="mb-2 block text-start">
+                            <Label
+                                htmlFor="photo"
+                                value="Your Photo"
+                            />
+                        </div>
+                        <TextInput
+                            name='photo'
+                            type="text"
+                            placeholder="your photo"
                             required={true}
                         />
                     </div>
