@@ -4,7 +4,7 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
+    const { login, signInWithGoogle } = useContext(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -17,8 +17,18 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
             })
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
 
+
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => console.err(err))
     }
 
     return (
@@ -58,9 +68,11 @@ const Login = () => {
                     <Button type="submit">
                         Submit
                     </Button>
-                    <p>Log in with google</p>
-                    <button className='text-2xl mx-auto'><FaGoogle></FaGoogle></button>
                 </form>
+                <div className='flex justify-between items-center'>
+                    <p className='mr-4'>Log in with google</p>
+                    <button onClick={handleGoogleSignIn} className='text-2xl mt-4 mx-auto'><FaGoogle></FaGoogle></button>
+                </div>
             </Card>
         </div>
     );

@@ -1,8 +1,19 @@
 import { Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
+
+
     return (
         <Navbar
             fluid={true}
@@ -20,23 +31,29 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
-                <Navbar.Link
-                    href="/navbars"
+                <Navbar
+
                     active={true}
                 >
-                    Home
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    About
-                </Navbar.Link>
-                <Navbar.Link href="/navbars">
-                    Services
-                </Navbar.Link>
-                <Navbar.Link href="/login">
-                    Login
-                </Navbar.Link>
-                <Navbar><Link to='/signup'>   Sign Up</Link>
+                    <Link to='/'> Home</Link>
                 </Navbar>
+                <Navbar>
+                    <Link to='/services'>Services</Link>
+                </Navbar>
+
+                {
+                    user?.email ?
+                        <>
+                            <Navbar>
+                                <Link to='/addServices'>Add services</Link>
+                            </Navbar>
+                            <Navbar className='font-semibold'>
+                                <button onClick={handleLogOut} className='btn-ghost'>Log Out</button>
+                            </Navbar>
+                        </>
+                        :
+                        <Navbar className='font-semibold'><Link to='/login'>Login</Link></Navbar>
+                }
 
             </Navbar.Collapse>
         </Navbar>
