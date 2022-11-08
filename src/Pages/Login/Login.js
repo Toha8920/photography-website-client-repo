@@ -1,10 +1,15 @@
 import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { login, signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -16,6 +21,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(err => console.error(err));
 
@@ -73,6 +79,7 @@ const Login = () => {
                     <p className='mr-4'>Log in with google</p>
                     <button onClick={handleGoogleSignIn} className='text-2xl mt-4 mx-auto'><FaGoogle></FaGoogle></button>
                 </div>
+                <p>Don't have an account Please  <Link className='underline' to='/signup'>Sign Up</Link></p>
             </Card>
         </div>
     );

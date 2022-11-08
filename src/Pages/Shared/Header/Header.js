@@ -40,6 +40,9 @@ const Header = () => {
                 <Navbar>
                     <Link to='/services'>Services</Link>
                 </Navbar>
+                <Navbar>
+                    <Link to='/blog'>Blog</Link>
+                </Navbar>
 
                 {
                     user?.email ?
@@ -52,7 +55,10 @@ const Header = () => {
                             </Navbar>
                         </>
                         :
-                        <Navbar className='font-semibold'><Link to='/login'>Login</Link></Navbar>
+                        <>
+                            <Navbar className='font-semibold'><Link to='/login'>Login</Link></Navbar>
+                            <Navbar className='font-semibold'><Link to='/signup'>Sign Up</Link></Navbar>
+                        </>
                 }
 
             </Navbar.Collapse>
