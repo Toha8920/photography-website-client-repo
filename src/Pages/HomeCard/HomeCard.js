@@ -4,6 +4,7 @@ import './HomeCard.css'
 
 const HomeCard = ({ event }) => {
     const { title, price, image } = event;
+    console.log(event)
     return (
         <div className="max-w-sm image">
             <Card className='mx-auto'

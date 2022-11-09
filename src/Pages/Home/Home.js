@@ -1,17 +1,26 @@
 import { Button, Carousel } from 'flowbite-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/UseTitle';
 import HomeCard from '../../Pages/HomeCard/HomeCard'
 
 const Home = () => {
 
-    const [events, setEvents] = useState([])
+    const [events, setEvents] = useState([]);
+    useTitle('Home')
 
-    fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => {
-            setEvents(data)
-        })
+    useEffect(() => {
+        fetch('http://localhost:5000/services?size=3')
+            .then(res => res.json())
+            .then(data => {
+                setEvents(data)
+                console.log(data)
+            })
+    }, [])
+
+    const copyEvents = [...events];
+    const newEvents = copyEvents.sort().reverse();
+    console.log(newEvents)
 
     return (
         <div>
@@ -41,9 +50,9 @@ const Home = () => {
             </div>
             <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 mt-10'>
                 {
-                    events.map(event => <HomeCard
+                    newEvents.map(event => <HomeCard
 
-                        key={event.id}
+                        key={event._id}
                         event={event}
                     ></HomeCard>)
                 }

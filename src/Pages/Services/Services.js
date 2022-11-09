@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import useTitle from '../../hooks/UseTitle';
 import Service from '../Service/Service';
 
 const Services = () => {
 
     const [events, setEvents] = useState([]);
+    useTitle('Services')
 
-    fetch('http://localhost:5000/')
+    fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => {
 

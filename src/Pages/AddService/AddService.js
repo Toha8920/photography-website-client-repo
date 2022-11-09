@@ -1,23 +1,46 @@
 import { Label, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
+import toast from 'react-hot-toast';
 
 const AddService = () => {
     const { user } = useContext(AuthContext);
+    useTitle('Add Service')
 
     const handleAddServices = event => {
         event.preventDefault();
         const form = event.target;
         const serviceName = form.serviceName.value;
         const photo = form.photo.value;
-        const description = form.description.vlaue;
+        const description = form.description.value;
         const price = form.price.value;
         const email = form.email.value || 'unregistered';
 
         const services = {
-
+            title: serviceName,
+            image: photo,
+            description,
+            price,
+            email
         }
 
+        fetch('http://localhost:5000/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(services)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('added successfully')
+                    form.reset();
+                }
+            })
     }
 
     return (
