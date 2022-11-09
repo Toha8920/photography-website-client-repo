@@ -1,14 +1,12 @@
 import { Table } from 'flowbite-react';
 import React from 'react';
 
-const MyReviewsRow = ({ rv }) => {
+
+const MyReviewsRow = ({ rv, handleDelete }) => {
     const { _id, name, review, email } = rv;
     console.log(rv)
 
-    const handleDelete = _id => {
-        const procceed = window.confirm('Are you sure,you want to cancel this review');
-        if (procceed)
-}
+
 
     return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -23,7 +21,7 @@ const MyReviewsRow = ({ rv }) => {
                 {email}
             </Table.Cell>
             <Table.Cell>
-                <button>X</button>
+                <button onClick={() => handleDelete(_id)}>X</button>
             </Table.Cell>
         </Table.Row>
     );

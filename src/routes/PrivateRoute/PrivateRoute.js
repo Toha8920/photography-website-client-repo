@@ -8,10 +8,12 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <Spinner
-            aria-label="Extra large spinner example"
-            size="xl"
-        />
+        return <div className='flex justify-center items-center'>
+            <Spinner
+                aria-label="Extra large spinner example"
+                size="xl"
+            />
+        </div>
     }
 
     if (user) {

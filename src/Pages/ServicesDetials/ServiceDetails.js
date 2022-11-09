@@ -2,7 +2,7 @@ import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 
 const ServiceDetails = () => {

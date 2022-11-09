@@ -32,7 +32,9 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(from, { replace: true });
+                console.log(user);
+
             })
             .catch(err => console.err(err))
     }
