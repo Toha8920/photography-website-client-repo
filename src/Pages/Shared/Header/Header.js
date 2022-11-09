@@ -50,6 +50,9 @@ const Header = () => {
                             <Navbar>
                                 <Link to='/addServices'>Add services</Link>
                             </Navbar>
+                            <Navbar>
+                                <Link to='/myreviews'>My Reviews</Link>
+                            </Navbar>
                             <Navbar className='font-semibold'>
                                 <button onClick={handleLogOut} className='btn-ghost'>Log Out</button>
                             </Navbar>

@@ -1,34 +1,87 @@
 import { Button, Card, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
 
     const service = useLoaderData();
-    console.log(service)
-    const { image, description, price, title } = service;
+    const { _id, image, description, price, title } = service;
+
+    const handleReview = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const ratting = form.ratting.value;
+        const review = form.review.value;
+        const email = user?.email;
+        const productId = _id;
+
+
+        const reviews = {
+            name: name,
+            ratting: ratting,
+            review: review,
+            email: email,
+            reviewId: productId
+        }
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviews)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast.success('added successfully')
+                    form.reset();
+                }
+            })
+
+    }
+
+
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10'>
-            <div className="flex flex-col gap-4">
-                <form>
-                    <div className="mb-2 block">
-                        <Label
-                            htmlFor="large"
-                            value="Large input"
-                        />
-                    </div>
-                    <TextInput
-                        id="large"
-                        type="text"
-                        sizing="lg"
-                    />
-                    <Button className='mt-4' color="purple">
-                        Review
-                    </Button>
-                </form>
+        <div>
+            <div className="w-full">
+                <Card
+                    imgAlt="Meaningful alt text for an image that is not purely decorative"
+                    imgSrc={image}
+                >
+                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {title}
+                    </h5>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                        {description}
+                    </p>
+                </Card>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
+                <div>
+                    {
+                        user?.uid ? <div>
+                            <form onSubmit={handleReview}>
+                                <input className='mt-5 rounded ml-2' type="text" name='name' placeholder='Your name' defaultValue={user?.displayName} required readOnly /> <br />
+                                <input className='mt-3 rounded ml-2' type="text" placeholder='Please add a ratting' name='ratting' /><br />
+                                <textarea className='mt-3 rounded ml-2' name="review" placeholder='Your review' id="" cols="50" rows=""></textarea> <br />
+                                <input className='mt-2 ml-2 bg-orange-400 p-3 rounded-md' type="submit" value="Add review" />
+                            </form>
+                        </div>
+                            :
+                            <>
+                                <div className='flex justify-center items-center h-20'>
+                                    <p className='text-2xl text-orange-400'>Please login to add a review <Link className='underline' to='/login'>Login</Link> </p>
+                                </div>
+                            </>
+                    }
+                </div>
                 <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:dark:bg-gray-900 dark:dark:text-gray-100">
                     <div className="flex justify-between p-4">
                         <div className="flex space-x-4">
@@ -49,23 +102,7 @@ const ServiceDetails = () => {
                     </div>
                     <div className="p-4 space-y-2 text-sm dark:dark:text-gray-400">
                         <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                        <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div className="max-w-lg">
-                    <Card
-                        imgAlt="Meaningful alt text for an image that is not purely decorative"
-                        imgSrc={image}
-                    >
-                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {title}
-                        </h5>
-                        <p className="font-normal text-gray-700 dark:text-gray-400">
-                            {description}
-                        </p>
-                    </Card>
                 </div>
             </div>
         </div>
