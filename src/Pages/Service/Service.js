@@ -1,6 +1,8 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Service = ({ service }) => {
     const { _id, title, price, image, rating, description } = service;
@@ -8,9 +10,14 @@ const Service = ({ service }) => {
     return (
         <div className="max-w-sm image">
             <Card className='mx-auto'
-                imgAlt="Meaningful alt text for an image that is not purely decorative"
-                imgSrc={image}
+            // imgAlt="Meaningful alt text for an image that is not purely decorative"
+            // imgSrc={image}
             >
+                <PhotoProvider>
+                    <PhotoView src={image}>
+                        <img className='rounded-md' src={image} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {title}
                 </h5>
