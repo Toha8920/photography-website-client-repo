@@ -7,7 +7,7 @@ const Services = () => {
     const [events, setEvents] = useState([]);
     useTitle('Services')
 
-    fetch('http://localhost:5000/services')
+    fetch('https://photography-server-ten.vercel.app/services')
         .then(res => res.json())
         .then(data => {
 

@@ -28,7 +28,7 @@ const ServiceDetails = () => {
             email: email,
             reviewId: productId
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://photography-server-ten.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

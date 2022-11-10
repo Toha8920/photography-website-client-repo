@@ -37,7 +37,7 @@ export const routes = createBrowserRouter([
                 path: '/services/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/services/${params.id}`)
+                    return fetch(`https://photography-server-ten.vercel.app/services/${params.id}`)
                 }
             },
             {
@@ -56,7 +56,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/updateReview/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/updateReview/${params.id}`)
+                loader: ({ params }) => fetch(`https://photography-server-ten.vercel.app/updateReview/${params.id}`)
             }
         ]
     }

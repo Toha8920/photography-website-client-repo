@@ -25,7 +25,7 @@ const AddService = () => {
             email
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://photography-server-ten.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

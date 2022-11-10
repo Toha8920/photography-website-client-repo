@@ -3,8 +3,7 @@ import React from 'react';
 import './HomeCard.css'
 
 const HomeCard = ({ event }) => {
-    const { title, price, image } = event;
-    console.log(event)
+    const { title, image } = event;
     return (
         <div className="max-w-sm image">
             <Card className='mx-auto'
