@@ -1,5 +1,6 @@
 import { Table } from 'flowbite-react';
 import React from 'react';
+import { FaEdit, FaFacebook, IconName } from "react-icons/fa";
 
 
 const MyReviewsRow = ({ rv, handleDelete, handleUpdateReview }) => {
@@ -21,7 +22,7 @@ const MyReviewsRow = ({ rv, handleDelete, handleUpdateReview }) => {
                 {email}
             </Table.Cell>
             <Table.Cell>
-                <button onClick={() => handleDelete(_id)}>X</button>
+                <button onClick={() => handleDelete(_id)}>Delete</button>
             </Table.Cell>
             <Table.Cell>
                 <button onClick={() => handleUpdateReview(_id)}>Edit</button>

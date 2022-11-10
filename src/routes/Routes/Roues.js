@@ -4,6 +4,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
+import NotFound from "../../Pages/NotFound/NotFound";
 import Services from "../../Pages/Services/Services";
 import ServiceDetails from "../../Pages/ServicesDetials/ServiceDetails";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -59,5 +60,9 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://photography-server-ten.vercel.app/updateReview/${params.id}`)
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound></NotFound>
     }
 ]);

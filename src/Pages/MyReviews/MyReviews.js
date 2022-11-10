@@ -43,37 +43,45 @@ const MyReviews = () => {
     }
 
     return (
-        <Table className='border'>
-            <Table.Head>
-                <Table.HeadCell>
+        <>
+            {
+                reviews.length > 0 ? <Table className='border'>
+                    <Table.Head>
+                        <Table.HeadCell>
 
-                    Your name
-                </Table.HeadCell>
-                <Table.HeadCell>
-                    Your review
-                </Table.HeadCell>
-                <Table.HeadCell>
-                    Email
-                </Table.HeadCell>
+                            Your name
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Your review
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Email
+                        </Table.HeadCell>
 
-                <Table.HeadCell>
-                    Delete
-                </Table.HeadCell>
-                <Table.HeadCell>
-                    Update
-                </Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y">
-                {
-                    reviews.map(rv => <MyReviewsRow
-                        key={rv._id}
-                        rv={rv}
-                        handleDelete={handleDelete}
-                        handleUpdateReview={handleUpdateReview}
-                    ></MyReviewsRow>)
-                }
-            </Table.Body>
-        </Table>
+                        <Table.HeadCell>
+                            Delete
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Update
+                        </Table.HeadCell>
+                    </Table.Head>
+                    <Table.Body className="divide-y">
+                        {
+                            reviews.map(rv => <MyReviewsRow
+                                key={rv._id}
+                                rv={rv}
+                                handleDelete={handleDelete}
+                                handleUpdateReview={handleUpdateReview}
+                            ></MyReviewsRow>)
+                        }
+                    </Table.Body>
+                </Table>
+                    :
+                    <div className='text-4xl text-center p-10'>
+                        <span>No review were added</span>
+                    </div>
+            }
+        </>
     );
 };
 

@@ -22,10 +22,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const signInWithGoogle = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const updateUserProfile = (profile) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile);
     }
 
