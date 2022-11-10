@@ -1,9 +1,11 @@
 import { Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const UpdateReview = () => {
     const updateReview = useLoaderData();
+    const { user } = useContext(AuthContext);
     const { _id, name, review, ratting } = updateReview;
     const navigate = useNavigate();
 
@@ -22,7 +24,8 @@ const UpdateReview = () => {
         fetch(`https://photography-server-ten.vercel.app/updateReview/${_id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+
             },
             body: JSON.stringify(updated)
         })
@@ -33,6 +36,8 @@ const UpdateReview = () => {
             })
 
     }
+
+
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 justify-center items-center">

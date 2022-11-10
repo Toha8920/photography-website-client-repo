@@ -7,17 +7,29 @@ import useTitle from '../../hooks/UseTitle';
 import { useNavigate } from 'react-router-dom';
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     useTitle('Services')
     const navigate = useNavigate();
 
     console.log(reviews)
     useEffect(() => {
-        fetch(`https://photography-server-ten.vercel.app/review?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [user?.email])
+        fetch(`https://photography-server-ten.vercel.app/review?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
+            .then(data => {
+                setReviews(data)
+
+            })
+    }, [user?.email, logOut])
 
 
     const handleUpdateReview = (id) => {
@@ -28,7 +40,10 @@ const MyReviews = () => {
         const proceed = window.confirm('Are you sure,you want to cancel this review');
         if (proceed) {
             fetch(`https://photography-server-ten.vercel.app/review/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
