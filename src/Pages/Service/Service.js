@@ -10,8 +10,6 @@ const Service = ({ service }) => {
     return (
         <div className="max-w-sm image">
             <Card className='mx-auto'
-            // imgAlt="Meaningful alt text for an image that is not purely decorative"
-            // imgSrc={image}
             >
                 <PhotoProvider>
                     <PhotoView src={image}>

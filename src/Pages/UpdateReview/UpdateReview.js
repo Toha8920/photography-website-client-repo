@@ -53,9 +53,10 @@ const UpdateReview = () => {
             <div className='w-[100vh] ml-5'>
                 <TextInput
                     id="large"
-                    type="text"
+                    type="number"
                     sizing="lg"
                     name='ratting'
+                    placeholder='Add ratting'
                 />
             </div>
             <input className='bg-orange-400 p-2 rounded-md' type="submit" value="Submit" />

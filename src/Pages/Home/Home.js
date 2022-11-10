@@ -109,8 +109,6 @@ const Home = () => {
                             <p className="mb-2 text-gray-500 dark:text-gray-400">
                                 I think I am not a best photographar.But I can gurenty you if you hire me I would be able to fill up your condition.I capture wild photography,weeding photography,journilism photography,sports photography and many others things.So you can hire me to capture any moments you want
                             </p>
-
-
                         </Accordion.Content>
                     </Accordion.Panel>
                 </Accordion>

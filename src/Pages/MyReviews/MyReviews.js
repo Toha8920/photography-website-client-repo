@@ -11,9 +11,9 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
     useTitle('Services')
     const navigate = useNavigate();
-    console.log(reviews)
 
-    console.log(reviews)
+
+
     useEffect(() => {
         fetch(`https://photography-server-ten.vercel.app/review/${user?.email}`, {
             headers: {

@@ -1,14 +1,8 @@
 import { Table } from 'flowbite-react';
-import React, { useContext, useEffect } from 'react';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-
 
 const MyReviewsRow = ({ rv, handleDelete, handleUpdateReview }) => {
-    const { user } = useContext(AuthContext)
+
     const { _id, name, review, email } = rv;
-    console.log(rv)
-
-
 
     return (
         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
