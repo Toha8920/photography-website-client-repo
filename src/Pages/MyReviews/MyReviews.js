@@ -4,11 +4,13 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import MyReviewsRow from './MyReviewsRow';
 import toast from 'react-hot-toast';
 import useTitle from '../../hooks/UseTitle';
+import { useNavigate } from 'react-router-dom';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     useTitle('Services')
+    const navigate = useNavigate();
 
     console.log(reviews)
     useEffect(() => {
@@ -17,6 +19,10 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [user?.email])
 
+
+    const handleUpdateReview = (id) => {
+        navigate(`/updateReview/${id}`)
+    }
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure,you want to cancel this review');
@@ -53,6 +59,9 @@ const MyReviews = () => {
                 <Table.HeadCell>
                     Delete
                 </Table.HeadCell>
+                <Table.HeadCell>
+                    Update
+                </Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">
                 {
@@ -60,6 +69,7 @@ const MyReviews = () => {
                         key={rv._id}
                         rv={rv}
                         handleDelete={handleDelete}
+                        handleUpdateReview={handleUpdateReview}
                     ></MyReviewsRow>)
                 }
             </Table.Body>

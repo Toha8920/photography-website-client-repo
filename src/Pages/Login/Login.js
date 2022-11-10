@@ -34,11 +34,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
-                const user = result.user;
-                // navigate(from, { replace: true });
                 navigate(from, { replace: true })
-                console.log(user);
-
             })
             .catch(err => console.err(err))
     }
