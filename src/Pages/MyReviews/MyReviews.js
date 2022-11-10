@@ -11,10 +11,11 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
     useTitle('Services')
     const navigate = useNavigate();
+    console.log(reviews)
 
     console.log(reviews)
     useEffect(() => {
-        fetch(`https://photography-server-ten.vercel.app/review?email=${user?.email}`, {
+        fetch(`https://photography-server-ten.vercel.app/review/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -30,6 +31,7 @@ const MyReviews = () => {
 
             })
     }, [user?.email, logOut])
+
 
 
     const handleUpdateReview = (id) => {

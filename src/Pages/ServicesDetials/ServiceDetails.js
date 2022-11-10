@@ -12,7 +12,6 @@ const ServiceDetails = () => {
     const { _id, image, description, price, title, rating } = service;
 
     const [reviews, setReviews] = useState([]);
-    console.log(reviews);
 
     const handleReview = (event) => {
         event.preventDefault();

@@ -2,49 +2,43 @@
     {
         "title": "Wild Photography",
         "price": 109.95,
-        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "category": "men's clothing",
+        "description": "I absolutely love this weird wild photo of a living rock cactus! This was taken while on a trip in Big Bend National Park in Texas. When I first saw one of these cacti, I thought that it had been stepped on and was dead. To my surprise, this is what many of the living rock cactus look like! It is always great to have somebody who knows more than you about the environment that you are exploring. Luckily for me, I had my brother, Nick Ivers, along for the trip, and he was able to quickly point out so many different species of cactus.",
         "image": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "rating": 3.9
+        "rating": 5.9
     },
     {
         "title": "Wedding Photography",
         "price": 22.3,
-        "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-        "category": "men's clothing",
+        "description": "A lot of people think of traditional wedding photography as endless stuffy group photos where everyone looks stiff as a board. Worse still, the different collections of people seem to go on forever. I think there is a fashion to be down on traditional wedding photography, but the actual working framework is still the same for most wedding photographers. The photographs may be more stylish but the actual experience on the day for the bride and groom is very similar.",
         "image": "https://www.wedding-spot.com/blog/sites/wsblog/files/images/migrated/258-wedding%2Bphotographer%2Btaking%2Bpictures%2Bof%2Bbride%2Bposing%2Bon%2Bground%2Bin%2Bwedding%2Bdress.jpg",
-        "rating": 3.9
+        "rating": 3.5
     },
     {
         "title": "Sports Photography",
         "price": 55.99,
-        "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
-        "category": "men's clothing",
+        "description": "Sports photography refers to the genre of photography that covers all types of sports. In the majority of cases, professional sports photography is a branch of photojournalism, while amateur sports photography, such as photos of children playing association football, is a branch of vernacular photography.The main application of professional sports photography is for editorial purposes; dedicated sports photographers usually work for newspapers, major wire agencies or dedicated sports magazines. However, sports photography is also used for advertising purposes both to build a brand and as well as to promote a sport in a way that cannot be accomplished by editorial means.",
         "image": "https://www.splento.com/blog/wp-content/uploads/2021/07/Sports-photography.jpg",
-        "rating": 3.9
+        "rating": 4.8
     },
     {
         "title": "Journalism Photography",
         "price": 15.99,
-        "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
-        "category": "men's clothing",
+        "description": "Journalism is an investigation and reporting of current world affairs which include fashion trends, political or general issue and events to a broad audience. Though there are various purposes for it, the most important aspect is the freedom of expression. The root of journalism comes from people’s right to have an opinion. Journalism is the quest for truth, precision and reasonableness in the recounting a story; journalists investigate an incident and attempt to uncover hidden truths, if any. Journalistic media include print, television, radio, Internet, and, in the past, newsreels. Concepts of the appropriate role for journalism vary between countries. In some nations, the news media are controlled by government intervention and are not fully independent. In others, the news media are independent of the government but instead operate as private industry motivated by profit.",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0x0Lio-OKaJoT-aIw7oS-8qPoOE_mdUkjDA&usqp=CAU",
-        "rating": 3.9
+        "rating": 4.00
     },
     {
         "title": "Tourism photography",
         "price": 695,
-        "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-        "category": "jewelery",
+        "description": "The travel photo essay represents the concept of tourism as the specific activity, where people freely engage for personal pleasure and satisfaction and also where the people's behavior is discretionary and voluntary proceeding from free choices of oneself. Whole Tourism System (WTS) is an open system where different elements which are tourists, tourism industry, and geographical factors such as tourist’s destination, transit route region, and traveller generating region. Early this tourism system was argued with the analysis of the disaggregated components; now, it can be achieved through interdependencies, impacts, interactions, and complex relationships. These three components of the tourism system make the total system running. Without tourists, there is no tourism industry, and without any geographical location, there are no tourists. According to Zheng et al. (2016), with the advancement of technology, transportation becomes easy and safe, which makes the tourists go to remote locations nowadays. The chosen tourist destination for this study in London. The WTS model comprises of hotels, tourist spots, resorts, transportation, and others",
         "image": "https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,w_300,dpr_3/https://assets.app.engoo.com/images/1gPtNfvl42zSEy72FhVEZ6.jpeg",
-        "rating": 3.9
+        "rating": 7.5
     },
     {
         "title": "Food photography ",
         "price": 168,
-        "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-        "category": "jewelery",
+        "description": "Food photography may not be as popular as landscape photography or portraiture, but it’s a genre which holds many advantages over others. We all buy, prepare and consume food, so we don't need go to too much extra trouble in sourcing our subjects. It’s something that can be done in the convenience of our own homes (regardless of the weather), and by working with the seasons you have a continuously changing variety of subjects to work with. The photographs you see in magazines and books will almost certainly have had some input from a stylist, one who is experienced with working with different foods and props in order to make everything look presentable. Perhaps most of us don’t have a natural aptitude for food styling, but simple garnishes for most dishes shouldn’t be beyond anyone’s creative capabilities. So what else does the budding novice need to know? ",
         "image": "https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZCUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&w=1000&q=80",
-        "rating": 3.9
+        "rating": 6.3
     }
 ]
